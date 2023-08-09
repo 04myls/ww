@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron:  "0 0 * * *"
+    # UTC 15:30 -> JST 00:30
+    - cron:  "30 15 * * *"
 
 jobs:
   build:
@@ -19,5 +20,5 @@ jobs:
           git config --global user.name ${{ secrets.USER_NAME }}
           echo "w" >> README.md
           git add README.md
-          git commit -m '[add] www'
+          git commit -m ':octocat: www'
           git push origin main
